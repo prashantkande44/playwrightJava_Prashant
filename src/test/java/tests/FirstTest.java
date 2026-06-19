@@ -1,0 +1,40 @@
+package tests;
+
+import org.testng.annotations.Test;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+
+import base.BaseTest;
+
+public class FirstTest extends BaseTest {
+	
+	
+	@Test
+	public void verifyTitle() {
+
+		page.navigate("https://www.google.com/ncr");
+
+		if (page.isVisible("button:has-text('Accept all')")) {
+			page.click("\"button:has-text('Accept all')");
+		}
+		
+		System.out.println("The Title of page is : " + page.title());
+
+	}
+
+	/*public static void main(String[] args) {
+		try (Playwright playeright = Playwright.create()) {
+
+			Browser browser = playeright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+			Page page = browser.newPage();
+			page.navigate("https://www.google.com");
+			System.out.println("The Title of page is : " + page.title());
+			browser.close();
+			}}
+*/
+		
+	}
+
